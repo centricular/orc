@@ -1,0 +1,2 @@
+option('enable_backend', type : 'combo', choices : ['sse', 'mmx', 'neon', 'mips', 'altivec', 'c64x', 'all'], value : 'all')
+option('library_format', type : 'combo', choices : ['shared', 'static', 'both'], value : 'shared')

@@ -1,0 +1,86 @@
+/* Enable Altivec backend */
+#mesondefine ENABLE_BACKEND_ALTIVEC
+
+/* Enable c64x backend */
+#mesondefine ENABLE_BACKEND_C64X
+
+/* Enable MIPS backend */
+#mesondefine ENABLE_BACKEND_MIPS
+
+/* Enable MMX backend */
+#mesondefine ENABLE_BACKEND_MMX
+
+/* Enable NEON backend */
+#mesondefine ENABLE_BACKEND_NEON
+
+/* Enable SSE backend */
+#mesondefine ENABLE_BACKEND_SSE
+
+/* Defined if host is amd64 */
+#mesondefine HAVE_AMD64
+
+/* Defined if we have __android_log_print() */
+#mesondefine HAVE_ANDROID_LIBLOG
+
+/* Defined if host is arm */
+#mesondefine HAVE_ARM
+
+/* Defined if we have clock_gettime() */
+#mesondefine HAVE_CLOCK_GETTIME
+
+/* Use malloc to allocate code for execution */
+#mesondefine HAVE_CODEMEM_MALLOC
+
+/* Use mmap to allocate code for execution */
+#mesondefine HAVE_CODEMEM_MMAP
+
+/* Use VirtualAlloc to allocate code for execution */
+#mesondefine HAVE_CODEMEM_VIRTUALALLOC
+
+/* Define to 1 if you have the `gettimeofday' function. */
+#mesondefine HAVE_GETTIMEOFDAY
+
+/* Defined if host is i386 */
+#mesondefine HAVE_I386
+
+/* Defined if host is mipsel */
+#mesondefine HAVE_MIPSEL
+
+/* Define to 1 if you have a working `mmap' system call. */
+#mesondefine HAVE_MMAP
+
+/* Defined if we have a monotonic clock */
+#mesondefine HAVE_MONOTONIC_CLOCK
+
+/* Defined if host OS is MS Windows */
+#mesondefine HAVE_OS_WIN32
+
+/* Define to 1 if you have the `posix_memalign' function. */
+#mesondefine HAVE_POSIX_MEMALIGN
+
+/* Defined if host is powerpc */
+#mesondefine HAVE_POWERPC
+
+/* Define to 1 if you have the <sys/time.h> header file. */
+#mesondefine HAVE_SYS_TIME_H
+
+/* Use pthread thread code */
+#mesondefine HAVE_THREAD_PTHREAD
+
+/* Use Windows thread code */
+#mesondefine HAVE_THREAD_WIN32
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#mesondefine HAVE_UNISTD_H
+
+/* Define to 1 if you have the <valgrind/valgrind.h> header file. */
+#mesondefine HAVE_VALGRIND_VALGRIND_H
+
+/* Defined for compiling internal code */
+#mesondefine ORC_EXPORTS
+
+/* Define to the version of this package. */
+#mesondefine PACKAGE_VERSION
+
+/* Version number of package */
+#mesondefine VERSION
