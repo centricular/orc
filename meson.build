@@ -1,6 +1,5 @@
-# FIXME: meson version requirement should be >= 0.27.1
-project ('Orc', 'c', version : '0.4.24.1',
-                     meson_version : '>= 0.27.0',
+project ('Orc', 'c', version : '0.4.25.1',
+                     meson_version : '>= 0.29',
                      default_options : [ 'buildtype=debugoptimized',
                                          'warning_level=1',
                                          'c_std=gnu99' ] )
