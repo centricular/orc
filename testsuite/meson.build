@@ -35,4 +35,9 @@ foreach bin : noinst_bins
 endforeach
 
 subdir('orcc')
+# FIXME: The -D define inside this causes Meson to barf because it contains a
+# path which has a '\' inside it, which isn't allowed in compiler arguments.
+# This needs to be fixed in Meson.
+if host_machine.system() != 'windows'
 subdir('benchmorc')
+endif
