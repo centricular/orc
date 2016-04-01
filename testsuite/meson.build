@@ -5,9 +5,7 @@ tests = [ 'test_accsadubl', 'test-schro', 'exec_opcodes_sys', 'exec_parse',
 foreach test : tests
   t = executable (test, test + '.c',
                   install: false,
-                  include_directories: orc_inc,
-                  dependencies: [ libm ],
-                  link_with: [ orc_lib, orc_test_lib ])
+                  dependencies: [libm, orc_dep, orc_test_dep])
 
   test (test, t, env : 'testfile=' + meson.current_source_dir() + '/test.orc')
 endforeach
@@ -29,9 +27,7 @@ endif
 foreach bin : noinst_bins
   b = executable (bin, bin + '.c',
                   install: false,
-                  include_directories: orc_inc,
-                  dependencies: [ libm ],
-                  link_with: [ orc_lib, orc_test_lib ])
+                  dependencies: [libm, orc_dep, orc_test_dep])
 endforeach
 
 subdir('orcc')

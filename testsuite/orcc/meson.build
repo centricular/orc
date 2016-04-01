@@ -17,22 +17,16 @@ if not meson.is_cross_build()
 
   t1 = executable ('orc_test', [ orc_test_c ],
                    install: false,
-                   include_directories: orc_inc,
-                   dependencies: [ libm ],
-                   link_with: [ orc_lib, orc_test_lib ])
+                   dependencies: [libm, orc_dep, orc_test_dep])
 
   t2 = executable ('test2', [ 'test2.c', testorc_c ],
                    install: false,
-                   include_directories: orc_inc,
-                   dependencies: [ libm ],
-                   link_with: [ orc_lib, orc_test_lib ])
+                   dependencies: [libm, orc_dep, orc_test_dep])
 
   t3 = executable ('test3', [ 'test3.c', testorc_c ],
                    install: false,
-                   include_directories: orc_inc,
                    c_args : [ '-DDISABLE_ORC' ],
-                   dependencies: [ libm ],
-                   link_with: [ orc_lib, orc_test_lib ])
+                   dependencies: [libm, orc_dep, orc_test_dep])
 
   test ('orc_test', t1)
   test ('test2', t2)

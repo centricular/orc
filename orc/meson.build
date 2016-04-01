@@ -111,12 +111,12 @@ orc_lib = shared_library('orc-' + orc_api, orc_sources,
   link_depends : 'orc.map',
   install : true)
 
+orc_dep = declare_dependency(include_directories : orc_inc, link_with : orc_lib)
+
 executable ('generate-bytecode', [ 'generate-bytecode.c' ],
             install: false,
-            include_directories: orc_inc,
-            link_with: [ orc_lib ])
+            dependencies : [orc_dep])
 
 executable ('generate-emulation', [ 'generate-emulation.c' ],
             install: false,
-            include_directories: orc_inc,
-            link_with: [ orc_lib ])
+            dependencies : [orc_dep])
