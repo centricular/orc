@@ -207,14 +207,14 @@ ORC_BEGIN_DECLS
 
 #ifdef ORC_ENABLE_UNSTABLE_API
 
-char * _strndup (const char *s, int n);
-char ** strsplit (const char *s, char delimiter);
-char * get_tag_value (char *s, const char *tag);
+ORC_EXPORT char * _strndup (const char *s, int n);
+ORC_EXPORT char ** strsplit (const char *s, char delimiter);
+ORC_EXPORT char * get_tag_value (char *s, const char *tag);
 
-orc_int64 _strtoll (const char *nptr, char **endptr, int base);
+ORC_EXPORT orc_int64 _strtoll (const char *nptr, char **endptr, int base);
 
-void orc_global_mutex_lock (void);
-void orc_global_mutex_unlock (void);
+ORC_EXPORT void orc_global_mutex_lock (void);
+ORC_EXPORT void orc_global_mutex_unlock (void);
 
 #endif
 

@@ -17,23 +17,22 @@ typedef enum {
 #define ORC_TEST_FLAGS_FLOAT (1<<1)
 #define ORC_TEST_FLAGS_EMULATE (1<<2)
 
-void orc_test_init (void);
-OrcTestResult orc_test_gcc_compile (OrcProgram *p);
-OrcTestResult orc_test_gcc_compile_neon (OrcProgram *p);
-OrcTestResult orc_test_gcc_compile_c64x (OrcProgram *p);
-OrcTestResult orc_test_gcc_compile_mips (OrcProgram *p);
-void orc_test_random_bits (void *data, int n_bytes);
-OrcTestResult orc_test_compare_output (OrcProgram *program);
-OrcTestResult orc_test_compare_output_full (OrcProgram *program, int flags);
-OrcTestResult orc_test_compare_output_backup (OrcProgram *program);
+ORC_EXPORT void orc_test_init (void);
+ORC_EXPORT OrcTestResult orc_test_gcc_compile (OrcProgram *p);
+ORC_EXPORT OrcTestResult orc_test_gcc_compile_neon (OrcProgram *p);
+ORC_EXPORT OrcTestResult orc_test_gcc_compile_c64x (OrcProgram *p);
+ORC_EXPORT OrcTestResult orc_test_gcc_compile_mips (OrcProgram *p);
+ORC_EXPORT void orc_test_random_bits (void *data, int n_bytes);
+ORC_EXPORT OrcTestResult orc_test_compare_output (OrcProgram *program);
+ORC_EXPORT OrcTestResult orc_test_compare_output_full (OrcProgram *program, int flags);
+ORC_EXPORT OrcTestResult orc_test_compare_output_backup (OrcProgram *program);
 
-OrcProgram *orc_test_get_program_for_opcode (OrcStaticOpcode *opcode);
-OrcProgram *orc_test_get_program_for_opcode_const (OrcStaticOpcode *opcode);
-OrcProgram *orc_test_get_program_for_opcode_param (OrcStaticOpcode *opcode);
+ORC_EXPORT OrcProgram *orc_test_get_program_for_opcode (OrcStaticOpcode *opcode);
+ORC_EXPORT OrcProgram *orc_test_get_program_for_opcode_const (OrcStaticOpcode *opcode);
+ORC_EXPORT OrcProgram *orc_test_get_program_for_opcode_param (OrcStaticOpcode *opcode);
 
-void orc_test_performance (OrcProgram *program, int flags);
-double orc_test_performance_full (OrcProgram *program, int flags,
-    const char *target);
+ORC_EXPORT void orc_test_performance (OrcProgram *program, int flags);
+ORC_EXPORT double orc_test_performance_full (OrcProgram *program, int flags, const char *target);
 
 ORC_END_DECLS
 

@@ -30,25 +30,48 @@ typedef enum {
 
 #define ORC_SSE_SHUF(a,b,c,d) ((((a)&3)<<6)|(((b)&3)<<4)|(((c)&3)<<2)|(((d)&3)<<0))
 
-const char * orc_x86_get_regname_sse(int i);
-void orc_x86_emit_mov_memoffset_sse (OrcCompiler *compiler, int size, int offset,
-    int reg1, int reg2, int is_aligned);
-void orc_x86_emit_mov_memindex_sse (OrcCompiler *compiler, int size, int offset,
-    int reg1, int regindex, int shift, int reg2, int is_aligned);
-void orc_x86_emit_mov_sse_memoffset (OrcCompiler *compiler, int size, int reg1, int offset,
-    int reg2, int aligned, int uncached);
+ORC_EXPORT
+const char*   orc_x86_get_regname_sse         (int i);
+ORC_EXPORT
+void          orc_x86_emit_mov_memoffset_sse  (OrcCompiler *compiler,
+                                               int size,
+                                               int offset,
+                                               int reg1,
+                                               int reg2,
+                                               int is_aligned);
+ORC_EXPORT
+void          orc_x86_emit_mov_memindex_sse   (OrcCompiler *compiler,
+                                               int size,
+                                               int offset,
+                                               int reg1,
+                                               int regindex,
+                                               int shift,
+                                               int reg2,
+                                               int is_aligned);
+ORC_EXPORT
+void          orc_x86_emit_mov_sse_memoffset  (OrcCompiler *compiler,
+                                               int size,
+                                               int reg1,
+                                               int offset,
+                                               int reg2,
+                                               int aligned,
+                                               int uncached);
 
-void orc_sse_set_mxcsr (OrcCompiler *compiler);
-void orc_sse_restore_mxcsr (OrcCompiler *compiler);
+ORC_EXPORT
+void          orc_sse_set_mxcsr               (OrcCompiler *compiler);
+ORC_EXPORT
+void          orc_sse_restore_mxcsr           (OrcCompiler *compiler);
 
-void orc_sse_load_constant (OrcCompiler *compiler, int reg, int size,
-    orc_uint64 value);
+ORC_EXPORT
+void          orc_sse_load_constant           (OrcCompiler *compiler,
+                                               int reg,
+                                               int size,
+                                               orc_uint64 value);
 
 #endif
 
-unsigned int orc_sse_get_cpu_flags (void);
+unsigned int  orc_sse_get_cpu_flags           (void);
 
 ORC_END_DECLS
 
 #endif
-
