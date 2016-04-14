@@ -96,6 +96,18 @@ orc_target_c_get_typedefs (void)
     "#define ORC_INTERNAL\n"
     "#endif\n"
     "#endif\n"
+    "\n"
+    "#ifndef ORC_EXPORT\n"
+    "#ifdef _MSC_VER\n"
+    "#ifdef ORC_EXPORTS\n"
+    "#define ORC_EXPORT __declspec(dllexport) extern\n"
+    "#else\n"
+    "#define ORC_EXPORT __declspec(dllimport) extern\n"
+    "#endif\n"
+    "#else /* not _MSC_VER */\n"
+    "#define ORC_EXPORT extern\n"
+    "#endif\n"
+    "#endif /* ORC_EXPORT */\n"
     "\n";
 }
 
