@@ -193,6 +193,8 @@ typedef unsigned int orc_bool;
 #define ORC_END_DECLS
 #endif
 
+/* FIXME: Should define this on all compilers while building on Windows and
+ * to support static builds, should only define this ifdef DLL_EXPORT */
 #ifdef _MSC_VER
 #ifdef ORC_EXPORTS
 #define ORC_EXPORT __declspec(dllexport) extern
