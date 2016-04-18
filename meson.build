@@ -137,7 +137,8 @@ pc_conf.set('ORC_MAJORMINOR', orc_api)
 
 
 pkgconfigdir = get_option('libdir') + '/pkgconfig'
-configure_file(input : 'orc.pc.in', output : 'orc.pc',
+configure_file(input : 'orc.pc.in',
+  output : 'orc-' + orc_api + '.pc',
   configuration : pc_conf,
   install_dir : pkgconfigdir)
 
