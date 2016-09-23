@@ -1,4 +1,4 @@
-if not meson.is_cross_build()
+if not meson.is_cross_build() and host_os != 'windows'
   gnome = import('gnome')
 
   version_entities = configuration_data()
