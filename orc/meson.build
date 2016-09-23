@@ -65,16 +65,7 @@ elif cpu_family == 'arm'
   orc_sources += [ 'orccpu-arm.c' ]
 endif
 
-orc_dependencies = [ libm ]
-
-if cc.has_function('clock_gettime', prefix : '#include <time.h>')
-  config_h.set('HAVE_CLOCK_GETTIME', true)
-  orc_dependencies += cc.find_library('rt', required : false)
-endif
-if cc.has_function('__android_log_print', prefix : '#include <android/log.h>')
-  config_h.set('HAVE_ANDROID_LIBLOG', true)
-  orc_dependencies += cc.find_library('log', required : true)
-endif
+orc_dependencies = libm + librt + liblog
 
 orc_headers = [ 'orc.h',
                 'orcarm.h',
@@ -116,8 +107,7 @@ orc_lib = shared_library('orc-' + orc_api, orc_sources,
   include_directories : orc_inc,
   c_args : orc_c_args,
   dependencies : orc_dependencies,
-  link_args : ['-Wl,--no-undefined',
-               '-Wl,--version-script,' + meson.current_source_dir() + '/orc.map'],
+  link_args : ['-Wl,--version-script,' + meson.current_source_dir() + '/orc.map'],
   link_depends : 'orc.map',
   install : true)
 
