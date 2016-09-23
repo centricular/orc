@@ -27,9 +27,11 @@
 
 */
 
+#include "config.h"
+
+#include <stdlib.h>
 #include <orc/orcmips.h>
 #include <orc/orcdebug.h>
-#include <stdlib.h>
 
 #define ORC_SW_MAX 32767
 #define ORC_SW_MIN (-1-ORC_SW_MAX)
