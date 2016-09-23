@@ -142,6 +142,9 @@ configure_file(input : 'orc.pc.in',
   configuration : pc_conf,
   install_dir : pkgconfigdir)
 
+# Install m4 macro that other projects use
+install_data('orc.m4', install_dir : 'share/aclocal')
+
 configure_file(input : 'config.h.meson',
   output : 'config.h',
   configuration : config_h)
