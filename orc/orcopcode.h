@@ -45,14 +45,21 @@ struct _OrcStaticOpcode {
   OrcOpcodeEmulateNFunc emulateN;
 };
 
-OrcStaticOpcode * orc_opcode_find_by_name (const char *name);
-void orc_opcode_init (void);
-OrcOpcodeSet *orc_opcode_set_get (const char *name);
-OrcOpcodeSet *orc_opcode_set_get_nth (int opcode_major);
-int orc_opcode_set_find_by_name (OrcOpcodeSet *opcode_set, const char *name);
-int orc_opcode_register_static (OrcStaticOpcode *sopcode, char *prefix);
+ORC_EXPORT
+OrcStaticOpcode*      orc_opcode_find_by_name       (const char *name);
+ORC_EXPORT
+void                  orc_opcode_init               (void);
+ORC_EXPORT
+OrcOpcodeSet*         orc_opcode_set_get            (const char *name);
+ORC_EXPORT
+OrcOpcodeSet*         orc_opcode_set_get_nth        (int opcode_major);
+ORC_EXPORT
+int                   orc_opcode_set_find_by_name   (OrcOpcodeSet *opcode_set,
+                                                     const char *name);
+ORC_EXPORT
+int                   orc_opcode_register_static    (OrcStaticOpcode *sopcode,
+                                                     char *prefix);
 
 ORC_END_DECLS
 
 #endif
-

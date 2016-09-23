@@ -59,10 +59,10 @@ struct _OrcProfile {
   int hist_count[ORC_PROFILE_HIST_LENGTH];
 };
 
-unsigned long orc_profile_stamp(void);
-void orc_profile_init(OrcProfile *prof);
-void orc_profile_stop_handle(OrcProfile *prof);
-void orc_profile_get_ave_std (OrcProfile *prof, double *ave_p, double *std_p);
+ORC_EXPORT unsigned long orc_profile_stamp(void);
+ORC_EXPORT void orc_profile_init(OrcProfile *prof);
+ORC_EXPORT void orc_profile_stop_handle(OrcProfile *prof);
+ORC_EXPORT void orc_profile_get_ave_std (OrcProfile *prof, double *ave_p, double *std_p);
 
 /**
  * orc_profile_start:
@@ -91,4 +91,3 @@ void orc_profile_get_ave_std (OrcProfile *prof, double *ave_p, double *std_p);
 ORC_END_DECLS
 
 #endif
-

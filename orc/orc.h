@@ -10,6 +10,7 @@
 #include <orc/orcutils.h>
 #include <orc/orccpu.h>
 
+ORC_EXPORT
 const char * orc_version_string (void);
 
 #endif

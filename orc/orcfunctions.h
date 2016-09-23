@@ -79,8 +79,9 @@ typedef union { orc_int64 i; double f; orc_int32 x2[2]; float x2f[2]; orc_int16 
 #endif
 #endif
 
-void orc_memcpy (void * ORC_RESTRICT d1, const void * ORC_RESTRICT s1, int n);
-void orc_memset (void * ORC_RESTRICT d1, int p1, int n);
+ORC_EXPORT void orc_memset (void * ORC_RESTRICT d1, int p1, int n);
+ORC_EXPORT void orc_memcpy (void * ORC_RESTRICT d1, const void * ORC_RESTRICT s1,
+    int n);
 
 #ifdef __cplusplus
 }

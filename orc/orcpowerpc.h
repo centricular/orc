@@ -79,61 +79,48 @@ enum {
   POWERPC_V31
 };
 
-const char * powerpc_get_regname(int i);
-int powerpc_regnum (int i);
+ORC_EXPORT const char * powerpc_get_regname(int i);
+ORC_EXPORT int powerpc_regnum (int i);
 
-void powerpc_emit(OrcCompiler *compiler, unsigned int insn);
+ORC_EXPORT void powerpc_emit(OrcCompiler *compiler, unsigned int insn);
 
-void powerpc_emit_add (OrcCompiler *compiler, int regd, int rega, int regb);
-void powerpc_emit_addi_rec (OrcCompiler *compiler, int regd, int rega, int imm);
-void powerpc_emit_addi (OrcCompiler *compiler, int regd, int rega, int imm);
-void powerpc_emit_lwz (OrcCompiler *compiler, int regd, int rega, int imm);
-void powerpc_emit_stw (OrcCompiler *compiler, int regs, int rega, int offset);
-void powerpc_emit_stwu (OrcCompiler *compiler, int regs, int rega, int offset);
-void powerpc_emit_ld (OrcCompiler *compiler, int regd, int rega, int imm);
-void powerpc_emit_std (OrcCompiler *compiler, int regs, int rega, int offset);
-void powerpc_emit_stdu (OrcCompiler *compiler, int regs, int rega, int offset);
+ORC_EXPORT void powerpc_emit_add (OrcCompiler *compiler, int regd, int rega, int regb);
+ORC_EXPORT void powerpc_emit_addi_rec (OrcCompiler *compiler, int regd, int rega, int imm);
+ORC_EXPORT void powerpc_emit_addi (OrcCompiler *compiler, int regd, int rega, int imm);
+ORC_EXPORT void powerpc_emit_lwz (OrcCompiler *compiler, int regd, int rega, int imm);
+ORC_EXPORT void powerpc_emit_stw (OrcCompiler *compiler, int regs, int rega, int offset);
+ORC_EXPORT void powerpc_emit_stwu (OrcCompiler *compiler, int regs, int rega, int offset);
+ORC_EXPORT void powerpc_emit_ld (OrcCompiler *compiler, int regd, int rega, int imm);
+ORC_EXPORT void powerpc_emit_std (OrcCompiler *compiler, int regs, int rega, int offset);
+ORC_EXPORT void powerpc_emit_stdu (OrcCompiler *compiler, int regs, int rega, int offset);
 
-void powerpc_emit_ret (OrcCompiler *compiler);
-void powerpc_emit_b (OrcCompiler *compiler, int label);
-void powerpc_emit_beq (OrcCompiler *compiler, int label);
-void powerpc_emit_bne (OrcCompiler *compiler, int label);
-void powerpc_emit_label (OrcCompiler *compiler, int label);
-void powerpc_add_fixup (OrcCompiler *compiler, int type, unsigned char *ptr, int label);
-void powerpc_do_fixups (OrcCompiler *compiler);
-void orc_powerpc_flush_cache (OrcCode *code);
+ORC_EXPORT void powerpc_emit_ret (OrcCompiler *compiler);
+ORC_EXPORT void powerpc_emit_b (OrcCompiler *compiler, int label);
+ORC_EXPORT void powerpc_emit_beq (OrcCompiler *compiler, int label);
+ORC_EXPORT void powerpc_emit_bne (OrcCompiler *compiler, int label);
+ORC_EXPORT void powerpc_emit_label (OrcCompiler *compiler, int label);
+ORC_EXPORT void powerpc_add_fixup (OrcCompiler *compiler, int type, unsigned char *ptr, int label);
+ORC_EXPORT void powerpc_do_fixups (OrcCompiler *compiler);
+ORC_EXPORT void orc_powerpc_flush_cache (OrcCode *code);
 
-void powerpc_emit_srawi (OrcCompiler *compiler, int regd, int rega, int shift,
-    int record);
-void powerpc_emit_655510 (OrcCompiler *compiler, int major, int d, int a,
-    int b, int minor);
-void powerpc_emit_D (OrcCompiler *compiler, const char *name,
-    unsigned int insn, int regd, int rega, int imm);
-void powerpc_emit_X (OrcCompiler *compiler, unsigned int insn, int d, int a,
-    int b);
-void powerpc_emit_VA (OrcCompiler *compiler, const char *name, unsigned int insn, int d, int a, int b,
-    int c);
-void powerpc_emit_VA_acb (OrcCompiler *compiler, const char *name, unsigned int insn, int d, int a, int b,
-    int c);
-void powerpc_emit_VX (OrcCompiler *compiler, unsigned int insn, int d, int a,
-    int b);
-void powerpc_emit_VX_b (OrcCompiler *p, const char *name, unsigned int insn, int a);
-void powerpc_emit_VX_db (OrcCompiler *p, const char *name, unsigned int insn, int d, int b);
-void powerpc_emit_VX_dbi (OrcCompiler *p, const char *name, unsigned int insn, int d, int b, int imm);
-void powerpc_emit_VXR (OrcCompiler *compiler, const char *name,
-    unsigned int insn, int d, int a, int b, int record);
-void powerpc_emit_VX_2 (OrcCompiler *p, const char *name, unsigned int insn,
-    int d, int a, int b);
-void powerpc_emit_VX_3 (OrcCompiler *p, const char *name, unsigned int insn,
-    int d, int a, int b, int c);
-void powerpc_emit_VX_3_reg (OrcCompiler *p, const char *name, unsigned int insn,
-    int d, int a, int b, int c);
-void powerpc_emit_VX_4 (OrcCompiler *p, const char *name, unsigned int insn,
-    int d, int a);
-int powerpc_get_constant (OrcCompiler *p, int type, int value);
-int powerpc_get_constant_full (OrcCompiler *p, int value0, int value1, int value2, int value3);
-void powerpc_load_long_constant (OrcCompiler *p, int reg, orc_uint32 a,
-    orc_uint32 b, orc_uint32 c, orc_uint32 d);
+ORC_EXPORT void powerpc_emit_srawi (OrcCompiler *compiler, int regd, int rega, int shift, int record);
+ORC_EXPORT void powerpc_emit_655510 (OrcCompiler *compiler, int major, int d, int a, int b, int minor);
+ORC_EXPORT void powerpc_emit_D (OrcCompiler *compiler, const char *name, unsigned int insn, int regd, int rega, int imm);
+ORC_EXPORT void powerpc_emit_X (OrcCompiler *compiler, unsigned int insn, int d, int a, int b);
+ORC_EXPORT void powerpc_emit_VA (OrcCompiler *compiler, const char *name, unsigned int insn, int d, int a, int b, int c);
+ORC_EXPORT void powerpc_emit_VA_acb (OrcCompiler *compiler, const char *name, unsigned int insn, int d, int a, int b, int c);
+ORC_EXPORT void powerpc_emit_VX (OrcCompiler *compiler, unsigned int insn, int d, int a, int b);
+ORC_EXPORT void powerpc_emit_VX_b (OrcCompiler *p, const char *name, unsigned int insn, int a);
+ORC_EXPORT void powerpc_emit_VX_db (OrcCompiler *p, const char *name, unsigned int insn, int d, int b);
+ORC_EXPORT void powerpc_emit_VX_dbi (OrcCompiler *p, const char *name, unsigned int insn, int d, int b, int imm);
+ORC_EXPORT void powerpc_emit_VXR (OrcCompiler *compiler, const char *name, unsigned int insn, int d, int a, int b, int record);
+ORC_EXPORT void powerpc_emit_VX_2 (OrcCompiler *p, const char *name, unsigned int insn, int d, int a, int b);
+ORC_EXPORT void powerpc_emit_VX_3 (OrcCompiler *p, const char *name, unsigned int insn, int d, int a, int b, int c);
+ORC_EXPORT void powerpc_emit_VX_3_reg (OrcCompiler *p, const char *name, unsigned int insn, int d, int a, int b, int c);
+ORC_EXPORT void powerpc_emit_VX_4 (OrcCompiler *p, const char *name, unsigned int insn, int d, int a);
+ORC_EXPORT int powerpc_get_constant (OrcCompiler *p, int type, int value);
+ORC_EXPORT int powerpc_get_constant_full (OrcCompiler *p, int value0, int value1, int value2, int value3);
+ORC_EXPORT void powerpc_load_long_constant (OrcCompiler *p, int reg, orc_uint32 a, orc_uint32 b, orc_uint32 c, orc_uint32 d);
 
 /* instructions */
 #define powerpc_emit_vand(p,a,b,c)         powerpc_emit_VX_2 (p, "vand", 0x10000404, a, b, c)

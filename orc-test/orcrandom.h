@@ -11,10 +11,10 @@ struct _OrcRandomContext {
   unsigned int x;
 };
 
-void orc_random_init (OrcRandomContext *context, int seed);
-void orc_random_bits (OrcRandomContext *context, void *data, int n_bytes);
-void orc_random_floats (OrcRandomContext *context, float *data, int n);
-unsigned int orc_random (OrcRandomContext *context);
+ORC_EXPORT void orc_random_init (OrcRandomContext *context, int seed);
+ORC_EXPORT void orc_random_bits (OrcRandomContext *context, void *data, int n_bytes);
+ORC_EXPORT void orc_random_floats (OrcRandomContext *context, float *data, int n);
+ORC_EXPORT unsigned int orc_random (OrcRandomContext *context);
 
 ORC_END_DECLS
 

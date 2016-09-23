@@ -39,10 +39,15 @@ struct _OrcRuleSet {
   int n_rules;
 };
 
-OrcRuleSet * orc_rule_set_new (OrcOpcodeSet *opcode_set, OrcTarget *target,
-    unsigned int required_flags);
-void orc_rule_register (OrcRuleSet *rule_set, const char *opcode_name,
-    OrcRuleEmitFunc emit, void *emit_user);
+ORC_EXPORT
+OrcRuleSet*   orc_rule_set_new    (OrcOpcodeSet *opcode_set,
+                                   OrcTarget *target,
+                                   unsigned int required_flags);
+ORC_EXPORT
+void          orc_rule_register   (OrcRuleSet *rule_set,
+                                   const char *opcode_name,
+                                   OrcRuleEmitFunc emit,
+                                   void *emit_user);
 
 
 ORC_END_DECLS

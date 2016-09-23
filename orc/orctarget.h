@@ -88,21 +88,32 @@ struct _OrcTarget {
 };
 
 
-OrcRule * orc_target_get_rule (OrcTarget *target, OrcStaticOpcode *opcode,
-    unsigned int target_flags);
-OrcTarget * orc_target_get_default (void);
-unsigned int orc_target_get_default_flags (OrcTarget *target);
-const char * orc_target_get_name (OrcTarget *target);
-const char * orc_target_get_flag_name (OrcTarget *target, int shift);
+ORC_EXPORT
+OrcRule*        orc_target_get_rule           (OrcTarget *target,
+                                               OrcStaticOpcode *opcode,
+                                               unsigned int target_flags);
+ORC_EXPORT
+OrcTarget*      orc_target_get_default        (void);
+ORC_EXPORT
+unsigned int    orc_target_get_default_flags  (OrcTarget *target);
+ORC_EXPORT
+const char*     orc_target_get_name           (OrcTarget *target);
+ORC_EXPORT
+const char*     orc_target_get_flag_name      (OrcTarget *target,
+                                               int shift);
 
-const char *orc_target_get_asm_preamble (const char *target);
-const char * orc_target_get_preamble (OrcTarget *target);
-const char * orc_target_c_get_typedefs (void);
+ORC_EXPORT
+const char*     orc_target_get_asm_preamble   (const char *target);
+ORC_EXPORT
+const char*     orc_target_get_preamble       (OrcTarget *target);
+ORC_EXPORT
+const char*     orc_target_c_get_typedefs     (void);
 
-void orc_target_register (OrcTarget *target);
-OrcTarget *orc_target_get_by_name (const char *target_name);
+ORC_EXPORT
+void            orc_target_register           (OrcTarget *target);
+ORC_EXPORT
+OrcTarget*      orc_target_get_by_name        (const char *target_name);
 
 ORC_END_DECLS
 
 #endif
-

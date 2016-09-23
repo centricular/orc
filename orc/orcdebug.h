@@ -145,13 +145,13 @@ typedef enum {
   } \
 } while(0)
 
-void orc_debug_set_print_function (OrcDebugPrintFunc func);
-int orc_debug_get_level (void);
-void orc_debug_set_level (int level);
+ORC_EXPORT void orc_debug_set_print_function (OrcDebugPrintFunc func);
+ORC_EXPORT int orc_debug_get_level (void);
+ORC_EXPORT void orc_debug_set_level (int level);
 
-void _orc_debug_init (void);
+ORC_EXPORT void _orc_debug_init (void);
 
-void orc_debug_print (int level, const char *file, const char *func,
+ORC_EXPORT void orc_debug_print (int level, const char *file, const char *func,
     int line, const char *format, ...);
 
 ORC_END_DECLS

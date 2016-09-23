@@ -138,32 +138,51 @@ struct _OrcCompiler {
 };
 
 
-int orc_compiler_label_new (OrcCompiler *compiler);
-int orc_compiler_get_constant (OrcCompiler *compiler, int size, int value);
-int orc_compiler_get_constant_long (OrcCompiler *compiler, orc_uint32 a,
-    orc_uint32 b, orc_uint32 c, orc_uint32 d);
-int orc_compiler_try_get_constant_long (OrcCompiler *compiler, orc_uint32 a,
-    orc_uint32 b, orc_uint32 c, orc_uint32 d);
-int orc_compiler_get_temp_constant (OrcCompiler *compiler, int size, int value);
-int orc_compiler_get_temp_reg (OrcCompiler *compiler);
-int orc_compiler_get_constant_reg (OrcCompiler *compiler);
-void orc_compiler_error (OrcCompiler *compiler, const char *fmt, ...);
-
-void orc_compiler_append_code (OrcCompiler *p, const char *fmt, ...)
-  ORC_GNU_PRINTF(2,3);
+ORC_EXPORT
+int         orc_compiler_label_new              (OrcCompiler *compiler);
+ORC_EXPORT
+int         orc_compiler_get_constant           (OrcCompiler *compiler, int size,
+                                                 int value);
+ORC_EXPORT
+int         orc_compiler_get_constant_long      (OrcCompiler *compiler,
+                                                 orc_uint32 a,
+                                                 orc_uint32 b,
+                                                 orc_uint32 c,
+                                                 orc_uint32 d);
+ORC_EXPORT
+int         orc_compiler_try_get_constant_long  (OrcCompiler *compiler,
+                                                 orc_uint32 a,
+                                                 orc_uint32 b,
+                                                 orc_uint32 c,
+                                                 orc_uint32 d);
+ORC_EXPORT
+int         orc_compiler_get_temp_constant      (OrcCompiler *compiler,
+                                                 int size,
+                                                 int value);
+ORC_EXPORT
+int         orc_compiler_get_temp_reg           (OrcCompiler *compiler);
+ORC_EXPORT
+int         orc_compiler_get_constant_reg       (OrcCompiler *compiler);
+ORC_EXPORT
+void        orc_compiler_error                  (OrcCompiler *compiler,
+                                                 const char *fmt, ...);
+ORC_EXPORT
+void        orc_compiler_append_code            (OrcCompiler *p,
+                                                 const char *fmt, ...)
+                                                ORC_GNU_PRINTF(2,3);
  
 #ifdef ORC_ENABLE_UNSTABLE_API
 
-int orc_compiler_flag_check (const char *flag);
+ORC_EXPORT
+int         orc_compiler_flag_check             (const char *flag);
 
-extern int _orc_compiler_flag_backup;
-extern int _orc_compiler_flag_emulate;
-extern int _orc_compiler_flag_debug;
-extern int _orc_compiler_flag_randomize;
+ORC_EXPORT int _orc_compiler_flag_backup;
+ORC_EXPORT int _orc_compiler_flag_emulate;
+ORC_EXPORT int _orc_compiler_flag_debug;
+ORC_EXPORT int _orc_compiler_flag_randomize;
 
 #endif
 
 ORC_END_DECLS
 
 #endif
-

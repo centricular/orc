@@ -19,10 +19,12 @@ struct _OrcBytecode {
 
 #ifdef ORC_ENABLE_UNSTABLE_API
 
-OrcBytecode * orc_bytecode_new (void);
-void orc_bytecode_free (OrcBytecode *bytecode);
-OrcBytecode * orc_bytecode_from_program (OrcProgram *p);
-int orc_bytecode_parse_function (OrcProgram *program, const orc_uint8 *bytecode);
+ORC_EXPORT OrcBytecode * orc_bytecode_new (void);
+ORC_EXPORT void orc_bytecode_free (OrcBytecode *bytecode);
+ORC_EXPORT OrcBytecode * orc_bytecode_from_program (OrcProgram *p);
+
+ORC_EXPORT int orc_bytecode_parse_function (OrcProgram *program,
+    const orc_uint8 *bytecode);
 
 #endif
 

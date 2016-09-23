@@ -43,13 +43,18 @@ struct _OrcCode {
 };
 
 
+ORC_EXPORT
 void orc_code_allocate_codemem (OrcCode *code, int size);
 
+ORC_EXPORT
 OrcCode * orc_code_new (void);
+
+ORC_EXPORT
 void orc_code_free (OrcCode *code);
 
 #ifdef ORC_ENABLE_UNSTABLE_API
 
+ORC_EXPORT
 void orc_code_chunk_free (OrcCodeChunk *chunk);
 
 #endif
