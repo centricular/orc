@@ -73,17 +73,27 @@ else
   config_h.set('HAVE_THREAD_PTHREAD', true)
 endif
 
-if cc.has_function('gettimeofday', prefix : '#include <sys/time.h>')
-  config_h.set('HAVE_GETTIMEOFDAY', true)
-endif
+monotonic_test = '''
+#include <time.h>
+#include <unistd.h>
+int main() {
+#if !(defined(_POSIX_MONOTONIC_CLOCK) && _POSIX_MONOTONIC_CLOCK >= 0 && defined(CLOCK_MONOTONIC))
+        #error No monotonic clock
+#endif
+        return 0;
+}
+'''
+config_h.set('HAVE_MONOTONIC_CLOCK', cc.compiles(monotonic_test))
+config_h.set('HAVE_GETTIMEOFDAY',
+  cc.has_function('gettimeofday', prefix : '#include <sys/time.h>'))
+config_h.set('HAVE_POSIX_MEMALIGN',
+  cc.has_function('posix_memalign', prefix: '#include <stdlib.h>'))
+config_h.set('HAVE_MMAP',
+  cc.has_function('mmap', prefix: '#include <sys/mman.h>'))
 
-# FIXME: detect these
-config_h.set('HAVE_MMAP', true)
-config_h.set('HAVE_MONOTONIC_CLOCK', true)
-config_h.set('HAVE_POSIX_MEMALIGN', true)
-config_h.set('HAVE_SYS_TIME_H', true)
-config_h.set('HAVE_UNISTD_H', true)
-config_h.set('HAVE_VALGRIND_VALGRIND_H', true)
+config_h.set('HAVE_SYS_TIME_H', cc.has_header('sys/time.h'))
+config_h.set('HAVE_UNISTD_H', cc.has_header('unistd.h'))
+config_h.set('HAVE_VALGRIND_VALGRIND_H', cc.has_header('valgrind/valgrind.h'))
 config_h.set('PACKAGE_VERSION', '"' + meson.project_version() + '"')
 config_h.set('VERSION', '"' + meson.project_version() + '"')
 # ORC_EXPORTS
