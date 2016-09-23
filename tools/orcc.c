@@ -315,6 +315,11 @@ main (int argc, char *argv[])
     fprintf(output, "#define _%s_\n", barrier);
     free (barrier);
     fprintf(output, "\n");
+
+    fprintf(output, "#ifdef HAVE_CONFIG_H\n");
+    fprintf(output, "#include \"config.h\"\n");
+    fprintf(output, "#endif\n");
+
     if (include_file) {
       fprintf(output, "#include <%s>\n", include_file);
     }
@@ -757,7 +762,7 @@ output_code_header (OrcProgram *p, FILE *output)
   if(use_internal) {
     fprintf(output, "ORC_INTERNAL void ");
   } else {
-    fprintf(output, "void ");
+    fprintf(output, "ORC_EXPORT void ");
   }
   output_prototype (p, output, 0);
   fprintf(output, ";\n");
@@ -849,7 +854,7 @@ output_code_execute (OrcProgram *p, FILE *output, int is_inline)
   if (!use_lazy_init) {
     const char *storage;
     if (is_inline) {
-      storage = "extern ";
+      storage = "ORC_EXPORT ";
     } else {
       if (use_inline) {
         storage = "";

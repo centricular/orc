@@ -73,12 +73,24 @@ typedef union { orc_int64 i; double f; orc_int32 x2[2]; float x2f[2]; orc_int16 
 #endif
 #endif
 
+#ifndef ORC_EXPORT
+#ifdef _MSC_VER
+#ifdef ORC_EXPORTS
+#define ORC_EXPORT __declspec(dllexport) extern
+#else
+#define ORC_EXPORT __declspec(dllimport) extern
+#endif
+#else /* not _MSC_VER */
+#define ORC_EXPORT extern
+#endif
+#endif /* ORC_EXPORT */
+
 
 #ifndef DISABLE_ORC
 #include <orc/orc.h>
 #endif
-void orc_memcpy (void * ORC_RESTRICT d1, const void * ORC_RESTRICT s1, int n);
-void orc_memset (void * ORC_RESTRICT d1, int p1, int n);
+ORC_EXPORT void orc_memcpy (void * ORC_RESTRICT d1, const void * ORC_RESTRICT s1, int n);
+ORC_EXPORT void orc_memset (void * ORC_RESTRICT d1, int p1, int n);
 
 
 /* begin Orc C target preamble */
