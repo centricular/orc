@@ -123,10 +123,13 @@ config_h.set('VERSION', '"' + meson.project_version() + '"')
 
 subdir('orc')
 subdir('orc-test')
-subdir('doc')
 subdir('tools')
 subdir('examples')
 subdir('testsuite')
+
+if not get_option('disable_gtkdoc') and not meson.is_cross_build() and host_os != 'windows'
+subdir('doc')
+endif
 
 pc_conf.set('prefix', get_option('prefix'))
 pc_conf.set('exec_prefix', get_option('prefix'))

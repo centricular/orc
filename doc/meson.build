@@ -1,18 +1,17 @@
-if not meson.is_cross_build() and host_os != 'windows'
-  gnome = import('gnome')
+gnome = import('gnome')
 
-  version_entities = configuration_data()
-  version_entities.set('ORC_MAJORMINOR', orc_api)
-  version_entities.set('PACKAGE_VERSION', meson.project_version())
+version_entities = configuration_data()
+version_entities.set('ORC_MAJORMINOR', orc_api)
+version_entities.set('PACKAGE_VERSION', meson.project_version())
 
-  # FIXME: xml files should be changed to include ../version.entities instead
-  configure_file (input : 'version.entities.in',
-                  output : 'version.entities',
-                  configuration : version_entities)
+# FIXME: xml files should be changed to include ../version.entities instead
+configure_file (input : 'version.entities.in',
+                output : 'version.entities',
+                configuration : version_entities)
 
-  # FIXME: hack to copy these files from the source dir into the build dir,
-  # should really be an option to gnome.gtkdoc() if tools can be made to
-  # look in the srcdir as well.
+# FIXME: hack to copy these files from the source dir into the build dir,
+# should really be an option to gnome.gtkdoc() if tools can be made to
+# look in the srcdir as well.
 if false
   content_files = [ 'building.xml', 'concepts.xml', 'opcode_table.xml',
                     'opcodes.xml', 'program.xml', 'running.xml',
@@ -27,12 +26,10 @@ if false
   endforeach
 endif
 
-  # FIXME: there should be a way to specify the gtk-doc requirement
-  # html_args : '--path=' + meson.current_build_dir() + ':' + meson.current_source_dir(),
-  gnome.gtkdoc(
-    'orc',
-    src_dir : '../orc',
-    main_sgml : 'orc-docs.sgml',
-    install : true
-  )
-endif
+# FIXME: there should be a way to specify the gtk-doc requirement
+# html_args : '--path=' + meson.current_build_dir() + ':' + meson.current_source_dir(),
+gnome.gtkdoc(
+  'orc',
+  src_dir : '../orc',
+  main_sgml : 'orc-docs.sgml',
+  install : true)
